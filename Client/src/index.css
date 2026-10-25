@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', sans-serif;
+  }
+}
+
+/* Custom design system pill tabs matching reference screenshot */
+.nav-tab-container {
+  @apply flex items-center bg-slate-100 dark:bg-slate-900/80 p-1 rounded-full border border-slate-200/80 dark:border-slate-800;
+}
+
+.nav-tab-item {
+  @apply flex items-center gap-1.5 px-4 py-1.5 text-sm font-medium rounded-full transition-all duration-150 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100;
+}
+
+.nav-tab-active {
+  @apply bg-blue-500/10 text-blue-600 dark:bg-blue-600/20 dark:text-blue-400 font-semibold shadow-sm;
+}
+
+/* Custom rounded card shadow and borders */
+.saas-card {
+  @apply bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-2xl p-6 shadow-sm transition-shadow hover:shadow-md;
+}
+
+.saas-input {
+  @apply bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-slate-100 rounded-full px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-blue-500/30 focus:border-blue-500 transition-all;
+}
+
+/* Skeleton Loading Animation */
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}

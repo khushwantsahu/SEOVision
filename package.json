@@ -1,0 +1,18 @@
+{
+  "name": "seo-vision",
+  "version": "1.0.0",
+  "description": "SEO Vision - Intelligent SEO Tracking Analyzer (MERN Stack MCA Project)",
+  "scripts": {
+    "install:all": "npm install && npm install --prefix server && npm install --prefix client",
+    "dev": "concurrently \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
+    "start": "node server/server.js",
+    "test": "npm run test --prefix server && npm run test --prefix client",
+    "build": "npm run build --prefix client"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  },
+  "keywords": ["seo", "mern", "vite", "react", "node", "express", "mongodb", "ai-analyzer"],
+  "author": "Khushwant Sahu",
+  "license": "MIT"
+}
