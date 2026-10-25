@@ -1,7 +1,18 @@
 import axios from 'axios';
 
-// Get base URL from environment variable or default to relative proxy /api
-const API_URL = import.meta.env.VITE_API_URL || '/api';
+// Get base URL from environment variable, or fallback directly to production backend
+const getBaseUrl = () => {
+  const envUrl = import.meta.env.VITE_API_URL;
+  if (envUrl && envUrl.trim() !== '') {
+    return envUrl.trim().replace(/\/+$/, '');
+  }
+  if (import.meta.env.DEV) {
+    return '/api';
+  }
+  return 'https://seovision.onrender.com/api';
+};
+
+const API_URL = getBaseUrl();
 
 const api = axios.create({
   baseURL: API_URL,

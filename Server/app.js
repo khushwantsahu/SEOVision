@@ -46,10 +46,10 @@ app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true }));
 
 // Apply General Rate Limiter to API Endpoints
-app.use('/api/', apiLimiter);
+app.use(['/api/', '/'], apiLimiter);
 
 // System Health Check Endpoint
-app.get('/api/health', (req, res) => {
+app.get(['/api/health', '/health'], (req, res) => {
   res.status(200).json({
     success: true,
     message: 'SEO Vision API engine operational',
@@ -57,12 +57,12 @@ app.get('/api/health', (req, res) => {
   });
 });
 
-// Mount Feature API Routes
-app.use('/api/auth', authRoutes);
-app.use('/api/analysis', analysisRoutes);
-app.use('/api/rank-tracker', rankRoutes);
-app.use('/api/dashboard', dashboardRoutes);
-app.use('/api/subscription', subscriptionRoutes);
+// Mount Feature API Routes (supports both /api/* and direct /* paths)
+app.use(['/api/auth', '/auth'], authRoutes);
+app.use(['/api/analysis', '/analysis'], analysisRoutes);
+app.use(['/api/rank-tracker', '/rank-tracker'], rankRoutes);
+app.use(['/api/dashboard', '/dashboard'], dashboardRoutes);
+app.use(['/api/subscription', '/subscription'], subscriptionRoutes);
 
 // Catch-all 404 handler for undefined API routes
 app.use((req, res, next) => {
