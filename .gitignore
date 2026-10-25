@@ -25,3 +25,16 @@ yarn-error.log*
 Thumbs.db
 .idea/
 .vscode/
+
+# Documentation, Reports & College Project Assets
+*.docx
+*.doc
+PROJECT_DOCUMENTATION.md
+doc_assets/
+extracted_ciris_sample.txt
+auth_info.json
+latest_analysis.json
+create_seovision_doc.py
+generate_diagrams.py
+take_screenshots.js
+capture_authenticated_screens.py
